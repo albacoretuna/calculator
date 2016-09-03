@@ -28,7 +28,7 @@ app.use((err, req, res, next) => {
 
 /**
  * handleInput
- * Just to say I have JsDoc plugin installed on my editor 
+ * Just to say I have JsDoc plugin installed on my editor
  * @param a {number}
  * @param b {number}
  * @param res {object} express response object
@@ -39,7 +39,7 @@ const handleInput = (a, b, res) => {
         res.send({'result': calc.add(calc.sanitizeNumbers(a, b)) });
     } else {
 	const errorMsg = `number1 and number2 must to be numberish.
-		          but number1 was: ${a} and number2 was: ${b} `; 
+		          but number1 was: ${a} and number2 was: ${b} `;
 
         res.status(404).send(errorMsg);
     }
@@ -52,7 +52,7 @@ const server = app.listen(app.get('port'), () => {
 });
 
 // We're ready, let the clients come in with their numbers!
-app.post('/add', (req, res) => {
+app.post('/calculator/add', (req, res) => {
     handleInput(req.body.number1, req.body.number2, res);
 });
 
@@ -60,7 +60,7 @@ app.post('*', (req, res) => {
     return res.status(404).send('Wrong address try posting to /add');
 });
 app.get('*', (req, res) => {
-    return res.send(`Hi this is a super REST calculator. 
+    return res.send(`Hi this is a super REST calculator.
 		    Posting a JSON object like {"number1": 3, "number2": 7} to /add returns the sum. Code on github: https://github.com/omidfi/calculator
     `);
 });
