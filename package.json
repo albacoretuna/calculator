@@ -4,7 +4,7 @@
   "description": "Calculate all the extraordinary problems of mathematics with this rest api",
   "main": "server.js",
   "scripts": {
-    "test": "test",
+    "test": "make test",
     "start": "node server.js"
   },
   "repository": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/omidfi/calculator#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "eslint": "^3.4.0",
     "eslint-config-airbnb": "^10.0.1"
   },
