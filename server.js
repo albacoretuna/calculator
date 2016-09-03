@@ -61,6 +61,6 @@ app.post('*', (req, res) => {
 });
 app.get('*', (req, res) => {
     return res.send(`Hi this is a super REST calculator. 
-		    Posting a JSON object like {"number1": 3, "number2": 7} to /add returns the sum
+		    Posting a JSON object like {"number1": 3, "number2": 7} to /add returns the sum. Code on github: https://github.com/omidfi/calculator
     `);
 });
