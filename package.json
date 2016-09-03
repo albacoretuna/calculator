@@ -1,0 +1,33 @@
+{
+  "name": "calculator",
+  "version": "0.0.1",
+  "description": "Calculate all the extraordinary problems of mathematics with this rest api",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omidfi/calculator.git"
+  },
+  "keywords": [
+    "calculator",
+    "calculus",
+    "algebra"
+  ],
+  "author": "Omid Hezaveh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/omidfi/calculator/issues"
+  },
+  "homepage": "https://github.com/omidfi/calculator#readme",
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb": "^10.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
