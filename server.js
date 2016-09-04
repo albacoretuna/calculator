@@ -14,14 +14,21 @@ const calc = require('./calc.js');
 const express = require('express');
 const app = express();
 
+// enable cors for all requests
+const cors = require('cors');
+app.use(cors());
+
 // to pars json in req body
 const bodyParser = require('body-parser');
 app.use( bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // to pin out JSON syntax errors in user input, credits: Internet
 app.use((err, req, res, next) => {
     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
-        return res.status(404).send('Did you seriously hand me invalid JSON? try again. ');
+        return res.status(404).send('Did you seriously hand me invalid JSON? try again. ' + JSON.stringify(err));
     }
     next();
 });
@@ -36,7 +43,7 @@ app.use((err, req, res, next) => {
  */
 const handleInput = (a, b, res) => {
     if(calc.sanitizeNumbers(a,b)) {
-        res.send({'result': calc.add(calc.sanitizeNumbers(a, b)) });
+        res.json({'result': calc.add(calc.sanitizeNumbers(a, b)) });
     } else {
 	const errorMsg = `number1 and number2 must to be numberish.
 		          but number1 was: ${a} and number2 was: ${b} `;
@@ -57,7 +64,7 @@ app.post('/calculator/add', (req, res) => {
 });
 
 app.post('*', (req, res) => {
-    return res.status(404).send('Wrong address try posting to /add');
+    return res.status(404).send('Wrong address try posting to /calculator/add');
 });
 app.get('*', (req, res) => {
     return res.send(`Hi this is a super REST calculator.
