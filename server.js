@@ -71,7 +71,7 @@ app.post('/calculator/add', (req, res) => {
 });
 
 app.post('*', (req, res) => {
-    logger.log('info', 'Someone posted to wrong url', {request: req});
+    logger.log('info', 'Someone posted to wrong url');
     return res.status(404).send('Wrong address try posting to /calculator/add');
 });
 app.get('*', (req, res) => {
