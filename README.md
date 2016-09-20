@@ -22,3 +22,8 @@ To add 4 and 53 together:
 ```
   curl -H "Content-Type: application/json" -X POST -d '{"number1":4,"number2":53}' http://localhost:8000/add
 ```
+
+## Notes
+HTTP requests are bread and buttee of web developments. If you write node, it's highly recommended to check this article
+
+https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
